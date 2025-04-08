@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Camera } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/Logo 1 Black.png";
 
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Gallery", path: "/gallery" },
-  { label: "Photographers", path: "/photographers" },
   { label: "Events", path: "/events" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
@@ -45,8 +45,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/">
             <a className="flex items-center space-x-2 text-white">
-              <Camera size={24} className="text-white" />
-              <span className="font-bold text-xl tracking-tight">NETRA</span>
+              <img src={logo} alt="Netra Photography Club" className="h-12 w-auto" />
             </a>
           </Link>
 

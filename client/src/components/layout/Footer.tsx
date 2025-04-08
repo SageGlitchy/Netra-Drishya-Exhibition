@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { Camera, Instagram, Mail, Facebook, Twitter } from "lucide-react";
+import { Instagram, Mail, Facebook, Twitter } from "lucide-react";
+import logo from "@/assets/Logo 1 Black.png";
 
 export function Footer() {
   return (
@@ -8,9 +9,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Logo and About */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <Camera size={24} className="text-white" />
-              <span className="font-bold text-xl tracking-tight">NETRA</span>
+            <div className="mb-4">
+              <img src={logo} alt="Netra Photography Club" className="h-12 w-auto" />
             </div>
             <p className="text-gray-400 mb-6">
               NETRA is the official photography club of our university, dedicated to capturing moments,
@@ -64,11 +64,7 @@ export function Footer() {
                   <a className="text-gray-400 hover:text-white transition-colors">Gallery</a>
                 </Link>
               </li>
-              <li>
-                <Link href="/photographers">
-                  <a className="text-gray-400 hover:text-white transition-colors">Photographers</a>
-                </Link>
-              </li>
+
               <li>
                 <Link href="/events">
                   <a className="text-gray-400 hover:text-white transition-colors">Events</a>
