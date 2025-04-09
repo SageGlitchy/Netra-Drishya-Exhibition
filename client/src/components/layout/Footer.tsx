@@ -13,8 +13,9 @@ export function Footer() {
               <img src={logo} alt="Netra Photography Club" className="h-12 w-auto" />
             </div>
             <p className="text-gray-400 mb-6">
-              NETRA is the official photography club of our university, dedicated to capturing moments,
-              telling stories, and nurturing visual artists since 2015.
+            NETRA is a space for visual storytellers who capture moments that matter. From mirrorless and DSLR users to mobile photographers, we welcome all eyes behind the lens. Through events, workshops, and everyday exploration, we freeze memories and frame emotions — one click at a time.
+
+
             </p>
             <div className="flex space-x-4">
               <a 
@@ -26,23 +27,7 @@ export function Footer() {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://facebook.com/netra.club" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Facebook size={20} />
-              </a>
-              <a 
-                href="https://twitter.com/netra.club" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Twitter size={20} />
-              </a>
-              <a 
-                href="mailto:contact@netra.club" 
+                href="mailto:photography@nitj.ac.in" 
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Mail size={20} />
