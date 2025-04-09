@@ -7,8 +7,6 @@ import logo from "@/assets/Logo 1 Black.png";
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Gallery", path: "/gallery" },
-  { label: "Events", path: "/events" },
-  { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -43,36 +41,32 @@ export function Header() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/">
-            <a className="flex items-center space-x-2 text-white">
-              <img src={logo} alt="Netra Photography Club" className="h-12 w-auto" />
-            </a>
+          <Link href="/" className="flex items-center space-x-2 text-white">
+            <img src={logo} alt="Netra Photography Club" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <Link key={item.path} href={item.path}>
-                <a
-                  className={`text-sm font-medium transition-colors hover:text-white/70 relative
-                    ${location === item.path ? "text-white" : "text-white/80"}`}
-                >
-                  {item.label}
-                  {location === item.path && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full"
-                      layoutId="navbar-indicator"
-                      initial={false}
-                    />
-                  )}
-                </a>
+              <Link 
+                key={item.path} 
+                href={item.path}
+                className={`text-sm font-medium transition-colors hover:text-white/70 relative
+                  ${location === item.path ? "text-white" : "text-white/80"}`}
+              >
+                {item.label}
+                {location === item.path && (
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full"
+                    layoutId="navbar-indicator"
+                    initial={false}
+                  />
+                )}
               </Link>
             ))}
-            <Link href="/register">
-              <a className="bg-white text-black px-4 py-2 text-sm font-semibold rounded-sm hover:bg-white/90 transition-colors">
-                Register
-              </a>
-            </Link>
+            <a href="https://www.utkansh.com/event/39" target="_blank" rel="noopener noreferrer" className="bg-white text-black px-4 py-2 text-sm font-semibold rounded-sm hover:bg-white/90 transition-colors">
+              Register
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -98,20 +92,18 @@ export function Header() {
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <Link key={item.path} href={item.path}>
-                    <a
-                      className={`text-base transition-colors hover:text-white/70
-                        ${location === item.path ? "text-white font-medium" : "text-white/80"}`}
-                    >
-                      {item.label}
-                    </a>
+                  <Link 
+                    key={item.path} 
+                    href={item.path}
+                    className={`text-base transition-colors hover:text-white/70
+                      ${location === item.path ? "text-white font-medium" : "text-white/80"}`}
+                  >
+                    {item.label}
                   </Link>
                 ))}
-                <Link href="/register">
-                  <a className="bg-white text-black px-4 py-2 text-sm font-semibold rounded-sm hover:bg-white/90 transition-colors w-full text-center mt-2">
-                    Register
-                  </a>
-                </Link>
+                <a href="https://www.utkansh.com/event/39" target="_blank" rel="noopener noreferrer" className="bg-white text-black px-4 py-2 text-sm font-semibold rounded-sm hover:bg-white/90 transition-colors w-full text-center mt-2">
+                  Register
+                </a>
               </nav>
             </div>
           </motion.div>

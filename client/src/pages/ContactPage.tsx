@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Layout } from "@/components/layout/Layout";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,8 +8,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, MessageSquare, Send } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, Send, Instagram, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -51,15 +52,42 @@ export default function ContactPage() {
 
   return (
     <Layout>
-      <section className="py-20 px-4 bg-black relative overflow-hidden">
+      <section className="min-h-screen py-20 px-4 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20"
+            className="absolute inset-0 bg-cover bg-center opacity-10"
             style={{ 
               backgroundImage: `url(https://images.unsplash.com/photo-1615824996195-f780bba7cfab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80)` 
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
+          
+          {/* Floating particles background */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-white/10"
+                initial={{
+                  x: Math.random() * 100,
+                  y: Math.random() * 100,
+                  width: Math.random() * 10 + 2,
+                  height: Math.random() * 10 + 2,
+                  opacity: Math.random() * 0.5 + 0.1
+                }}
+                animate={{
+                  y: [0, Math.random() * 100 - 50],
+                  x: [0, Math.random() * 100 - 50],
+                  transition: {
+                    duration: Math.random() * 10 + 10,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "linear"
+                  }
+                }}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="container mx-auto relative z-10">
@@ -90,20 +118,33 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium mb-1">Email</h3>
                     <a href="mailto:contact@netra.club" className="text-gray-400 hover:text-white transition-colors">
-                      contact@netra.club
+                      photography@nitj.ac.in
                     </a>
                   </div>
                 </div>
                 
-                <div className="flex items-start">
-                  <Phone className="w-5 h-5 text-white mr-4 mt-1" />
-                  <div>
-                    <h3 className="font-medium mb-1">Phone</h3>
-                    <a href="tel:+919876543210" className="text-gray-400 hover:text-white transition-colors">
-                      +91 98765 43210
-                    </a>
+                <motion.div 
+                  className="p-6 rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-800 shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <div className="flex items-start">
+                    <div className="p-3 rounded-lg bg-gray-800/50 mr-4">
+                      <Phone className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-2 text-lg">Phone</h3>
+                      <div className="space-y-2 text-gray-300">
+                        <a href="tel:+918955227055" className="block hover:text-white transition-colors">
+                          Rishi Khandelwal (8955227055)
+                        </a>
+                        <a href="tel:+919501871465" className="block hover:text-white transition-colors">
+                          Deepank Rana (9501871465)
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </motion.div>
                 
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-white mr-4 mt-1" />
@@ -149,7 +190,13 @@ export default function ContactPage() {
                       <FormItem>
                         <FormLabel>Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your name" {...field} className="bg-gray-900 border-gray-800" />
+                          <motion.div whileFocus={{ scale: 1.01 }}>
+                            <Input 
+                              placeholder="Your name" 
+                              {...field} 
+                              className="bg-gray-800/50 border-gray-700 focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all"
+                            />
+                          </motion.div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -201,21 +248,28 @@ export default function ContactPage() {
                   <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-white text-black hover:bg-white/90"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 shadow-lg"
+                    asChild
                   >
-                    {isSubmitting ? (
-                      <span className="flex items-center">
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center">
-                        <Send className="mr-2 h-4 w-4" /> Send Message
-                      </span>
-                    )}
+                    <motion.div 
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full"
+                    >
+                      {isSubmitting ? (
+                        <span className="flex items-center">
+                          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        <span className="flex items-center">
+                          <Send className="mr-2 h-4 w-4" /> Send Message
+                        </span>
+                      )}
+                    </motion.div>
                   </Button>
                 </form>
               </Form>

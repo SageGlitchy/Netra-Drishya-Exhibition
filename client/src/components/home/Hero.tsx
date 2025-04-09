@@ -4,6 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import { Link } from 'wouter';
 import { Exhibition } from '@shared/schema';
 import { useQuery } from '@tanstack/react-query';
+import { Badge } from "@/components/ui/badge";
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,7 +35,7 @@ export function Hero() {
     return () => clearInterval(interval);
   }, [bgImages.length]);
 
-  const dates = exhibition ? new Date(exhibition.startDate).toLocaleDateString() + ' - ' + new Date(exhibition.endDate).toLocaleDateString() : 'Coming Soon';
+  const dates = exhibition ? new Date(exhibition.startDate).toLocaleDateString() + ' - ' + new Date(exhibition.endDate).toLocaleDateString() : 'Time: 11 AM';
 
   return (
     <div className="relative h-screen overflow-hidden">
@@ -49,7 +50,7 @@ export function Hero() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          <div className="absolute inset-0 bg-black bg-opacity-80" />
         </motion.div>
       </AnimatePresence>
 
@@ -61,31 +62,29 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="max-w-5xl"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white">
             <span className="block">DRISHYA</span>
-            <span className="block text-xl sm:text-2xl md:text-3xl mt-2 font-light uppercase tracking-widest">A Photography Exhibition</span>
+            <span className="block text-2xl sm:text-3xl md:text-4xl mt-3 font-light uppercase tracking-widest">A Photography Exhibition</span>
           </h1>
           
-          <div className="mt-6 mb-8 text-gray-300 max-w-2xl mx-auto">
-            <p className="text-lg sm:text-xl">
+          <div className="mt-8 mb-10 text-white max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl font-medium">
               {exhibition?.description || "Experience visual narratives through the lens of talented photographers at Utkansh."}
             </p>
-            <p className="mt-4 text-white font-medium">
-              {dates} | {exhibition?.location || "University Arts Gallery"}
+            <p className="mt-6 text-white font-medium flex items-center justify-center gap-3 text-lg">
+              {dates} | <Badge variant="secondary" className="animate-pulse bg-white/30 text-white hover:bg-white/40 text-lg py-1.5">🏛️ Venue: IT-Building </Badge>
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Link href="/gallery">
-              <a className="px-8 py-3 bg-white text-black font-medium text-lg hover:bg-opacity-90 transition-colors">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 w-full max-w-md mx-auto">
+            <Link href="/gallery" className="w-full sm:w-1/2">
+              <a className="w-full px-8 py-3 bg-white text-black font-medium text-lg hover:bg-opacity-90 transition-colors inline-block text-center">
                 Explore Gallery
               </a>
             </Link>
-            <Link href="/register">
-              <a className="px-8 py-3 border border-white text-white font-medium text-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-                Register to Visit
-              </a>
-            </Link>
+            <a href="https://www.utkansh.com/event/39" target="_blank" rel="noopener noreferrer" className="w-full sm:w-1/2 px-8 py-3 border border-white text-white font-medium text-lg hover:bg-white hover:bg-opacity-10 transition-colors text-center inline-block">
+              Register to Visit
+            </a>
           </div>
         </motion.div>
       </div>

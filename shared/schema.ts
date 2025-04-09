@@ -67,7 +67,7 @@ export const exhibitions = pgTable("exhibitions", {
   startDate: timestamp("start_date").notNull(),
   endDate: timestamp("end_date").notNull(),
   coverImage: text("cover_image").notNull(),
-  mapUrl: text("map_url"),
+  mapUrl: text("map_url").default("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212.85591961309996!2d75.53555480849155!3d31.39498029743807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a51d8476e23c7%3A0x145672a1e9067bbd!2sIT%20Building!5e0!3m2!1sen!2sin!4v1744200055473!5m2!1sen!2sin"),
 });
 
 export const insertExhibitionSchema = createInsertSchema(exhibitions).omit({

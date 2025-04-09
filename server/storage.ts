@@ -336,8 +336,8 @@ export class MemStorage implements IStorage {
       name: "Drishya",
       description: "A visual journey through the lens of NETRA's talented photographers at Utkansh 2023. Experience diverse perspectives and artistic expressions captured in still frames.",
       location: "University Arts Gallery, Utkansh Building",
-      startDate: new Date(2023, 10, 15), // November 15, 2023
-      endDate: new Date(2023, 10, 20), // November 20, 2023
+      startDate: new Date(2025, 3, 10), // April 10, 2025
+      endDate: new Date(2025, 3, 13), // April 13, 2025
       coverImage: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5831474374966!2d77.53410537518788!3d12.934193515666305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU2JzAzLjEiTiA3N8KwMzInMTAuOCJF!5e0!3m2!1sen!2sin!4v1627980977128!5m2!1sen!2sin"
     };
@@ -350,28 +350,28 @@ export class MemStorage implements IStorage {
         exhibitionId: 1,
         name: "Opening Ceremony",
         description: "Inauguration of Drishya exhibition by the Dean of Fine Arts.",
-        date: new Date(2023, 10, 15),
-        time: "10:00 AM"
+        date: new Date(2025, 4, 10),
+        time: "11:00 AM"
       },
       {
         exhibitionId: 1,
         name: "Photography Workshop",
         description: "Learn the basics of composition and lighting with master photographer Rajiv Mehta.",
-        date: new Date(2023, 10, 16),
+        date: new Date(2025, 4, 11),
         time: "2:00 PM"
       },
       {
         exhibitionId: 1,
         name: "Panel Discussion",
         description: "The future of digital photography in the age of AI and computational imaging.",
-        date: new Date(2023, 10, 17),
+        date: new Date(2025, 3, 12),
         time: "4:00 PM"
       },
       {
         exhibitionId: 1,
         name: "Award Ceremony",
         description: "Recognition of outstanding photographs and photographers from the exhibition.",
-        date: new Date(2023, 10, 20),
+        date: new Date(2025, 3, 13),
         time: "5:00 PM"
       }
     ];

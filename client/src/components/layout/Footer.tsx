@@ -18,7 +18,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/netra.club" 
+                href="https://instagram.com/nitj_photography_club" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -55,30 +55,14 @@ export function Footer() {
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
-                  <a className="text-gray-400 hover:text-white transition-colors">Home</a>
-                </Link>
+                <Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
               </li>
               <li>
-                <Link href="/gallery">
-                  <a className="text-gray-400 hover:text-white transition-colors">Gallery</a>
-                </Link>
+                <Link href="/gallery" className="text-gray-400 hover:text-white transition-colors">Gallery</Link>
               </li>
 
               <li>
-                <Link href="/events">
-                  <a className="text-gray-400 hover:text-white transition-colors">Events</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about">
-                  <a className="text-gray-400 hover:text-white transition-colors">About</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">
-                  <a className="text-gray-400 hover:text-white transition-colors">Contact</a>
-                </Link>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
@@ -87,20 +71,22 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Contact Us</h3>
             <address className="not-italic text-gray-400">
-              <p className="mb-2">NETRA Photography Club</p>
-              <p className="mb-2">Student Activity Center</p>
-              <p className="mb-2">University Campus</p>
-              <p className="mb-4">New Delhi, India</p>
-              <p className="mb-2">
-                <a href="mailto:contact@netra.club" className="hover:text-white transition-colors">
-                  contact@netra.club
-                </a>
-              </p>
-              <p>
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">
-                  +91 98765 43210
-                </a>
-              </p>
+              <p className="mb-2">Netra Photography Club</p>
+              <p className="mb-4">Dr. BR Ambedkar National Institute of Technology<br />Jalandhar, Punjab</p>
+              <div className="space-y-3">
+                <p>
+                  <span className="block font-medium text-white">Rishi Khandelwal</span>
+                  <a href="tel:+918955227055" className="hover:text-white transition-colors">
+                    +91 89552 27055
+                  </a>
+                </p>
+                <p>
+                  <span className="block font-medium text-white">Deepank Rana</span>
+                  <a href="tel:+919501871465" className="hover:text-white transition-colors">
+                    +91 95018 71465
+                  </a>
+                </p>
+              </div>
             </address>
           </div>
         </div>

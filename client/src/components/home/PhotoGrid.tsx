@@ -80,18 +80,20 @@ export function PhotoGrid() {
           >
             All
           </button>
-          {categories.map(category => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategoryId(category.id)}
-              className={`px-4 py-2 text-sm font-medium transition-colors
-                ${selectedCategoryId === category.id 
-                  ? 'bg-white text-black' 
-                  : 'bg-transparent text-white border border-white/30 hover:border-white/60'}`}
-            >
-              {category.name}
-            </button>
-          ))}
+          {categories
+            .filter(category => !['City Life', 'Urban Moments'].includes(category.name))
+            .map(category => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategoryId(category.id)}
+                className={`px-4 py-2 text-sm font-medium transition-colors
+                  ${selectedCategoryId === category.id 
+                    ? 'bg-white text-black' 
+                    : 'bg-transparent text-white border border-white/30 hover:border-white/60'}`}
+              >
+                {category.name}
+              </button>
+            ))}
         </div>
 
         {/* Photo Grid */}

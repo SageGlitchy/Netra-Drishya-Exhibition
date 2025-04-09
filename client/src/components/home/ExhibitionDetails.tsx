@@ -130,6 +130,44 @@ export function ExhibitionDetails() {
             ></iframe>
           </motion.div>
         )}
+
+        {/* Contact Information */}
+        <motion.div
+          className="mt-16 bg-gradient-to-br from-gray-900 to-black border border-gray-800 p-8 rounded-sm shadow-xl relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-white">Contact for Participation</h3>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4 bg-gray-800/50 p-4 rounded-sm hover:bg-gray-800/70 transition-colors">
+                  <span className="text-2xl bg-white/10 p-2 rounded-full">📞</span>
+                  <div>
+                    <p className="text-white font-medium">Rishi Khandelwal</p>
+                    <p className="text-gray-300">8955227055</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4 bg-gray-800/50 p-4 rounded-sm hover:bg-gray-800/70 transition-colors">
+                  <span className="text-2xl bg-white/10 p-2 rounded-full">📞</span>
+                  <div>
+                    <p className="text-white font-medium">Deepank Rana</p>
+                    <p className="text-gray-300">9501871465</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <h3 className="text-2xl font-semibold mb-6 text-white">Address</h3>
+              <address className="text-gray-300 not-italic bg-gray-800/50 p-4 rounded-sm">
+                <p className="font-medium mb-2">Netra Photography Club</p>
+                Dr. BR Ambedkar National Institute of Technology<br />
+                Jalandhar, Punjab
+              </address>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

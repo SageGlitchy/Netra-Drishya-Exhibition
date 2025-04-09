@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Layout } from "@/components/layout/Layout";
 import { Lightbox, Thumbnail } from '@/components/ui/lightbox';
 import { Photo, Category, Photographer } from '@shared/schema';
+import logo from '@/assets/logo.svg';
 
 export default function GalleryPage() {
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
@@ -103,18 +104,20 @@ export default function GalleryPage() {
               >
                 All
               </button>
-              {categories.map(category => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategoryId(category.id)}
-                  className={`px-4 py-2 text-sm font-medium transition-colors
-                    ${selectedCategoryId === category.id 
-                      ? 'bg-white text-black' 
-                      : 'bg-transparent text-white border border-white/30 hover:border-white/60'}`}
-                >
-                  {category.name}
-                </button>
-              ))}
+              {categories
+                .filter(category => !['City Life', 'Urban Moments'].includes(category.name))
+                .map(category => (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategoryId(category.id)}
+                    className={`px-4 py-2 text-sm font-medium transition-colors
+                      ${selectedCategoryId === category.id 
+                        ? 'bg-white text-black' 
+                        : 'bg-transparent text-white border border-white/30 hover:border-white/60'}`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
             </motion.div>
           </div>
 
@@ -138,7 +141,7 @@ export default function GalleryPage() {
                     transition={{ duration: 0.2 }}
                   >
                     <Thumbnail 
-                      src={photo.thumbnailUrl} 
+                      src={photo.imageUrl}
                       alt={photo.title}
                       onClick={() => openLightbox(index)}
                       className="aspect-square md:aspect-[4/3] rounded-sm overflow-hidden"
